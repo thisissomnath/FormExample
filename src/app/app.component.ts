@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mu-app';
+  // title = 'Hooks';
+ public number: number=123456;
+ nstring="somnathame :";
+  
+  get counter(){
+    return this.number;
+  }
+
+  set counter(value){
+    this.number=value;
+  }
+  increment(){
+    this.counter++;
+  }
+  decrement(){
+    this.counter--;
+  }
 }

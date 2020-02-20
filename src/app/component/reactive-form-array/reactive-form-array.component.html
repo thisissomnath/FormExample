@@ -1,0 +1,123 @@
+<!-- <p>reactive-form-array works!</p> -->
+<div formArrayName="arr" *ngFor="let a of formGroup.get('arr').controls;let i = index">    
+    <div [formGroupName]="i">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Angular Reactive Form</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form"[formGroup]="formGroup" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                        <!-- <div formArrayName="arr" *ngFor="let a of formGroup.get('arr').controls;let i = index">    
+                            <div [formGroupName]="i"> -->
+                            <div class="form-group">
+                            <label>Name</label>
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            name="name"
+                            ngModel
+                            #name="ngModel"
+                            maxlength="10"
+                            required>
+                             <!-- <span class="text-danger"
+                                *ngIf="name.errors &&(name.touched || name.dirty)">
+                             <p *ngIf="name.errors.required">Name is required</p>
+                             <p *ngIf="name.errors.maxlength">Name must be Only 10 characters</p> 
+                            </span>  -->
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input 
+                            type="email" 
+                            class="form-control" 
+                            name="email"
+                            ngModel
+                            #email="ngModel">
+                             <!-- <span class="text-danger"
+                                *ngIf="email.errors &&(email.touched || email.dirty)">
+                                <p *ngIf="email.errors.required">
+                                Email Is required
+                                </p>
+                                <p *ngIf="email.errors.valid">Enter valid Email Address</p>
+                            </span> -->
+ 
+                        </div>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            name="username">
+                            <!-- <span class="text-danger"
+                                *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+                                User Name is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="registerFormControl.username.touched && registerFormControl.username.errors?.userNameNotAvailable">
+                                User Name is not available
+                            </span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input 
+                            type="password" 
+                            class="form-control" 
+                            name="password">
+                            <!-- <span class="text-danger"
+                                *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+                                Password is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
+                                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                                letter and 1 number
+                            </span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input 
+                            type="password" 
+                            class="form-control" 
+                            name="confirmPassword">
+                            <!-- <span class="text-danger"
+                                *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required">
+                                Confirm Password is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
+                                Passwords doesnot match
+                            </span> -->
+                        </div>
+                        <div class="form-group">
+                            <button 
+                            type="submit" 
+                            class="btn btn-primary ">
+                            Register
+                            </button>
+                            <button
+                            type="reset"
+                            class="btn btn-secondary " 
+                            style="float:right;margin-top: 5px;" >
+                            Reset Form
+                            </button>
+                            
+                            <button 
+                            type="submit" 
+                            (click)="addItem()"
+                            class="btn btn-success "
+                            style="margin: 10px;">
+                            Add Form
+                            </button>
+
+                                 </div>
+                                </form> 
+                            </div>     
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

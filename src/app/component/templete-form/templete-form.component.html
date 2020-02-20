@@ -1,0 +1,79 @@
+    <!-- <card> -->
+    <form name=" registerForm"(ngSubmit)="onSubmit(f)" #f="ngForm"  
+    style="border: solid 1px black;width:50%; height: auto;justify-content: center;">
+        <div class="form-group">
+            <div class="form-row">
+            <label for="name" class="col-md-3 col-form-label">Enter Your name:</label>
+                 <input type="text" 
+                 name="name" 
+                 class="form-control" 
+                 placeholder="Enter Your Name" 
+                 ngModel 
+                 required 
+                 #name="ngModel" 
+                 minlength="4" maxlength="10">
+            </div>
+        
+        <span class="col-md-8" style="color: red;"
+            *ngIf="name.errors &&(name.dirty || name.touched)">
+            <p *ngIf="name.errors.required">Name is required</p>
+            <p *ngIf="name.errors.minlength"> Name Must be length 4 character !</p>
+            <p *ngIf="name.errors.maxlength">Maximum Length of name is 10 Character Only!</p>
+
+        </span>
+    </div>
+        <div class="form-group">   
+            <div class="form-row">
+            <label class="col-md-3 col-form-label">Enter your Email:</label>
+            <input 
+            type="Email" 
+            name="email" 
+            class="form-control" 
+            placeholder="Enter your Email" 
+            ngModel 
+            #email="ngModel" 
+            required>
+                
+        </div>  
+        <div style="color: red;"
+        *ngIf="email.errors &&(email.dirty || email.touched)" >
+        <p *ngIf="email.errors.required" > Email is required</p>
+        </div>    
+        </div>
+         
+        <div class="form-group">
+            <div class="form-row">
+            <label class="col-md-3 col-form-label"> Enter your password:</label>
+            <input 
+            type="password" 
+            ngModel="password=" 
+            #password="ngModel" 
+            required 
+            pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,15}$/">
+
+          <div style="color:dodgerblue" 
+          *ngIf="password.errors &&(email.dirty || email.touched)" >
+           <p *ngIf="password.errors.required" > password is required</p>
+           <p *ngIf="password.errors.pattern">Password should be at least 8 characters
+            long and should contain one number,one character and one special
+            character</p>
+        </div>
+        </div>
+        </div> 
+
+        <div class="form-group">
+            <div class="form-row">
+            <label class="col-md-3 col-form-label">Enter Your city </label>
+            <input 
+            type="text" 
+            name="city" 
+            class="form-control" 
+            placeholder="Enter your city">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" 
+        style="padding: 7px; margin: 20px;">Submit</button>
+        <button type="reset" class="btn btn-success mb-2" 
+        style="padding: 7px; margin: 20px;">Reset</button>
+    </form>
+        <!-- </card> -->
